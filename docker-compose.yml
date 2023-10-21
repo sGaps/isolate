@@ -1,0 +1,24 @@
+services:
+  compiler:
+    image: image:local
+    build:
+      context: compiler
+      dockerfile: Dockerfile
+    volumes:
+      - isolated:/mnt/isolated
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: "1024M"
+        reservations:
+          cpus: "0.25"
+          memory: "256M"
+
+volumes:
+  isolated:
+    driver: local
+    driver_opts:
+      o: "size=128m"
+      device: tmpfs
+      type: tmpfs
