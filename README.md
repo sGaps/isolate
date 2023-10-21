@@ -12,12 +12,11 @@ from a course of Programming Fundamentals.
 
 ## Contents
 
-- [Isolate: a toy-like environment to compile C projects](#isolate-a-toy-like-environment-to-compile-c-projects)
-  - [Contents](#contents)
-  - [How to Install](#how-to-install)
-  - [How to use](#how-to-use)
-  - [Requirements](#requirements)
-  - [TO DO](#to-do)
+- [Contents](#contents)
+- [How to Install](#how-to-install)
+- [How to use](#how-to-use)
+- [Requirements](#requirements)
+- [TO DO](#to-do)
 
 
 ## How to Install
@@ -44,13 +43,13 @@ And that's all.
 
 ## How to use
 
-In your terminal, write the following command
+In your terminal, write the following command to get information about the utility.
 
 ```bash
 isolate
 ```
 
-It will show something like this
+After that, the command will show something like this:
 
 ```
 Usage:
@@ -59,6 +58,22 @@ Description:
     Command that lets you run gcc and gdb into an isolated environment with capped results
 ```
 
+This command expects a file or Directory as an argument, so this command
+
+```bash
+isolate test/example.c
+```
+
+Will copy the file `test/example.c` inside `/mnt/isolated` whereas this one:
+
+```bash
+isolate test/
+```
+
+will copy the directry `test` inside `/mnt/isolated`
+
+Once the new shell opens, you can use the commands `gcc`, `gdb` or other commands
+to start to test the code of your students.
 
 ## Requirements
 
