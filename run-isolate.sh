@@ -5,7 +5,7 @@ set -e
 # TODO: Improve the command options later.
 
 # Script's parameter resolution
-target=$1
+target="$1"
 if [ -z $target ]; then
     echo "Usage:" >&2
     echo "    run-isolate [FILE]" >&2
@@ -14,8 +14,8 @@ if [ -z $target ]; then
     exit 1
 fi
 
-target=$(realpath $target)
-base=$(basename $target)
+target=$(realpath "$target")
+base=$(basename "$target")
 
 
 # Runtime information and environment
