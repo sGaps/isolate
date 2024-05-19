@@ -30,10 +30,13 @@ if [ -z $RUNTIME_CONFIG ]; then
     exit 1
 fi
 
+container_name=isolated-gcc-$(date '+%Y-%m-%d_T%H%M%S')
+echo "INFO: Running 'isolate' as the following container '$container_name' " >&2
+echo -e "INFO: Target file/directory: $target \n" >&2
 
 # Real automated task
 exec docker compose -f "$RUNTIME_CONFIG" run \
     -it \
-    --volume $target:/mnt/external/$base \
-    --name=isolated-gcc \
+    --volume $target:/mnt/external/$base:ro \
+    --name="$container_name" \
     --rm compiler
