@@ -13,7 +13,8 @@ RUN apt-get update \
         gdbserver \
         vim \
         neovim \
-        man-db
+        man-db \
+        unzip
 
 # Installs zsh and "Oh my ZSH!":
 RUN apt-get update \
