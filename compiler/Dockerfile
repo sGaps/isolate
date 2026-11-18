@@ -14,7 +14,8 @@ RUN apt-get update \
         vim \
         neovim \
         man-db \
-        unzip
+        unzip \
+        tmux
 
 # Installs zsh and "Oh my ZSH!":
 RUN apt-get update \
@@ -31,6 +32,7 @@ RUN apt-get update \
 
 COPY entrypoint.sh /usr/bin/entrypoint
 RUN chmod +x /usr/bin/entrypoint
+
     
 VOLUME [ "/mnt/isolated", "/mnt/external" ]
 WORKDIR /mnt/isolated
@@ -53,4 +55,6 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
     && sed -i 's/ZSH_THEME=.*/ZSH_THEME="obraun"/' /home/$USERNAME/.zshrc
 RUN sudo chsh -s $(which zsh) $(whoami)
 
+RUN mkdir -p /home/$USERNAME/.config/
+COPY user-config/ /home/$USERNAME/.config/
 
