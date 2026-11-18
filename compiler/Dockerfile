@@ -15,7 +15,8 @@ RUN apt-get update \
         neovim \
         man-db \
         unzip \
-        tmux
+        tmux \
+        faketime
 
 # Installs zsh and "Oh my ZSH!":
 RUN apt-get update \
